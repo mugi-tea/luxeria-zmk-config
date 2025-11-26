@@ -17,6 +17,7 @@
 // D8  = &xiao_d 8  (P1.13)
 // D9  = &xiao_d 9  (P1.14)
 // D10 = &xiao_d 10 (P1.15)
+// D11 = &gpio0 15  (P0.15) - xiao_dに定義されていないので直接指定
 
 &kscan0 {
     row-gpios
@@ -33,6 +34,6 @@
         , <&xiao_d 8 GPIO_ACTIVE_HIGH>
         , <&xiao_d 9 GPIO_ACTIVE_HIGH>
         , <&xiao_d 10 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 11 GPIO_ACTIVE_HIGH>
+        , <&gpio0 15 GPIO_ACTIVE_HIGH>
         ;
 };
