@@ -1,4 +1,0 @@
-name: zmk-keyboard-seiboku-example
-build:
-  settings:
-    board_root: .

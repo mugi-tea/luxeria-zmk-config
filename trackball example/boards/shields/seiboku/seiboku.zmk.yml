@@ -1,9 +1,0 @@
-file_format: "1"
-id: seiboku
-name: SEIBOKU
-type: shield
-url: https://github.com/snize/zmk-seiboku-example
-requires: [seeed_xiao]
-features:
-  - keys
-  - pointer
