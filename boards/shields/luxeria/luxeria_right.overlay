@@ -5,8 +5,6 @@
 
 #include "luxeria.dtsi"
 
-// テスト用: D0(row) x D1(col) = 1キーのみ
-
 &default_transform {
     col-offset = <7>;
 };

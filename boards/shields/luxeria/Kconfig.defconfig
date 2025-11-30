@@ -17,7 +17,7 @@ config ZMK_KEYBOARD_NAME
     default "Luxeria"
 
 config ZMK_SPLIT_ROLE_CENTRAL
-    default n
+    default y
 
 endif
 
