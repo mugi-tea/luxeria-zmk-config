@@ -19,6 +19,18 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
+config INPUT
+    bool
+    default y
+
+config SPI
+    bool
+    default y
+
+config ZMK_POINTING
+    bool
+    default y
+
 endif
 
 if SHIELD_LUXERIA_LEFT || SHIELD_LUXERIA_RIGHT
