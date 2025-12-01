@@ -88,11 +88,13 @@
 };
 
 / {
-    scroll_scaler: scroll_scaler {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
+    scroll_speed_divider: scroll_speed_divider {
+        compatible = "zmk,input-processor-transform";
+        #input-processor-cells = <0>;
         type = <INPUT_EV_REL>;
-        codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
+        x-codes = <INPUT_REL_X>;
+        y-codes = <INPUT_REL_Y>;
+        divisor = <12>;
     };
 
     trackball_listener {
@@ -102,7 +104,7 @@
 
         scroller {
             layers = <2>;
-            input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_to_scroll_mapper>, <&scroll_scaler 1 3>;
+            input-processors = <&scroll_speed_divider>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_to_scroll_mapper>;
         };
     };
 };
