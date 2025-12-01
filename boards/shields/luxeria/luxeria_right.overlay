@@ -89,12 +89,11 @@
 
 / {
     scroll_speed_divider: scroll_speed_divider {
-        compatible = "zmk,input-processor-transform";
-        #input-processor-cells = <0>;
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
         type = <INPUT_EV_REL>;
-        x-codes = <INPUT_REL_X>;
-        y-codes = <INPUT_REL_Y>;
-        divisor = <12>;
+        codes = <INPUT_REL_X INPUT_REL_Y>;
+        track-remainders;
     };
 
     trackball_listener {
@@ -104,7 +103,7 @@
 
         scroller {
             layers = <2>;
-            input-processors = <&scroll_speed_divider>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_to_scroll_mapper>;
+            input-processors = <&scroll_speed_divider 1 12>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_to_scroll_mapper>;
         };
     };
 };
