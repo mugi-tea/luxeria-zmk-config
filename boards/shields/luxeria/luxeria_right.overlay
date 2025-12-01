@@ -88,6 +88,13 @@
 };
 
 / {
+    scroll_scaler: scroll_scaler {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+        type = <INPUT_EV_REL>;
+        codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
+    };
+
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
@@ -95,7 +102,7 @@
 
         scroller {
             layers = <2>;
-            input-processors = <&zip_xy_to_scroll_mapper>;
+            input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_to_scroll_mapper>, <&scroll_scaler 1 3>;
         };
     };
 };
