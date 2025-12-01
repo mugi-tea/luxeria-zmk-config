@@ -88,14 +88,6 @@
 };
 
 / {
-    scroll_speed_divider: scroll_speed_divider {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
-        type = <INPUT_EV_REL>;
-        codes = <INPUT_REL_X INPUT_REL_Y>;
-        track-remainders;
-    };
-
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
@@ -103,7 +95,7 @@
 
         scroller {
             layers = <2>;
-            input-processors = <&scroll_speed_divider 1 12>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_to_scroll_mapper>;
+            input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 8>;
         };
     };
 };
