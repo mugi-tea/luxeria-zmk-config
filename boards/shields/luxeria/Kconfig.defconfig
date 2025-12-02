@@ -31,6 +31,10 @@ config ZMK_POINTING
     bool
     default y
 
+config PMW3610
+    bool
+    default y
+
 endif
 
 if SHIELD_LUXERIA_LEFT || SHIELD_LUXERIA_RIGHT
