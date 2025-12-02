@@ -5,6 +5,8 @@
 
 #include "luxeria.dtsi"
 #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
 
 // Seeeduino XIAO BLE Plus pinout:
 // D0  = &xiao_d 0  (P0.02)
@@ -86,7 +88,6 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
         force-awake;
-        scroll-layers = <2>;
     };
 };
 
@@ -94,5 +95,10 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+
+        scroller {
+            layers = <2>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        };
     };
 };

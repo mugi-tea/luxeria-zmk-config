@@ -1,0 +1,24 @@
+#include "ZaruBall.dtsi"
+
+&kscan0 {
+    gpios
+        = <&xiao_d 0 GPIO_ACTIVE_HIGH>//M1
+        , <&xiao_d 1 GPIO_ACTIVE_HIGH>//M2
+        , <&xiao_d 2 GPIO_ACTIVE_HIGH>//M3
+        , <&xiao_d 3 GPIO_ACTIVE_HIGH>//M4
+        , <&xiao_d 4 GPIO_ACTIVE_HIGH>//M5
+        , <&xiao_d 5 GPIO_ACTIVE_HIGH>//M6
+        , <&xiao_d 6 GPIO_ACTIVE_HIGH>//M7
+
+        , <&xiao_d 9 GPIO_ACTIVE_HIGH>//T1
+        , <&xiao_d 8 GPIO_ACTIVE_HIGH>//T2
+        , <&xiao_d 7 GPIO_ACTIVE_HIGH>//T3
+        , <&gpio1 10 GPIO_ACTIVE_HIGH>//T4
+        , <&gpio0 16 GPIO_ACTIVE_HIGH>//T5
+        ;
+    interrupt-gpios = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;//IGPIO
+};
+
+&left_encoder {
+    status = "okay";
+};
