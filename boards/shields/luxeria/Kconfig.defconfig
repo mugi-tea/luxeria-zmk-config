@@ -9,6 +9,10 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
     default n
 
+config ZMK_DISPLAY
+    select LV_USE_CONT
+    select LV_FONT_MONTSERRAT_26
+
 endif
 
 if SHIELD_LUXERIA_RIGHT
